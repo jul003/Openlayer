@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map</title>
+  <script type="module" src="/controller/main.js"></script>
+  <link href="https://cdn.skypack.dev/ol/ol.css" rel="stylesheet"></link>
+  <script type="module" src="/controller/popup.js"></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 80vh;
+    }
+    #locations ul {
+      list-style: none;
+      padding: 0;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .hidden {
+      display: none;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+    textarea {
+      width: 100%;
+      height: 50px;
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #save-location {
+      background: #28a745;
+      color: white;
+    }
+    #cancel-location {
+      background: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="locations">
+      <h3>Saved Locations:</h3>
+      <ul id="location-list"></ul>
+    </div>
+    <div id="input-popup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Save Location</h3>
+        <p id="popup-coordinates"></p>
+        <textarea id="location-description" placeholder="Enter description here..."></textarea>
+        <button id="save-location">Save</button>
+        <button id="cancel-location">Cancel</button>
+      </div>
+    </div>
+</body>
+</html>
